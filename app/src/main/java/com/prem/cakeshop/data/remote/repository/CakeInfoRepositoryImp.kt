@@ -26,8 +26,8 @@ class CakeInfoRepositoryImp @Inject constructor(
         emit(DataRetrievalStatus.Loading())
         try {
             //Make the actual API request here.
-            val cakesListDto = cakeInfoApi.getCakesList().map { it.toCakeInfo() }
-            emit(DataRetrievalStatus.Success(cakesListDto))
+            val cakesList = cakeInfoApi.getCakesList().map { it.toCakeInfo() }
+            emit(DataRetrievalStatus.Success(cakesList))
         } catch (httpException: HttpException) {
             emit(DataRetrievalStatus.Error(httpException.message()))
         } catch (ioException: IOException) {
