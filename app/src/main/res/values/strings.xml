@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CakeShop</string>
+    <string name="sample_title">Sample cake Title</string>
+    <string name="image_content_description">useful information for ui testing</string>
+    <string name="error_dialog_title">Failed to fetch cakes</string>
+    <string name="error_dialog_retry">Retry</string>
+    <string name="refresh_text">Refresh</string>
+    <string name="description_dialog_title">Description</string>
 </resources>

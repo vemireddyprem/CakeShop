@@ -33,7 +33,11 @@ class CakeInfoListViewModel @Inject constructor(
     private val _uiEvent = MutableSharedFlow<UIEvent>()
     val uiEvent = _uiEvent.asSharedFlow()
 
-    fun loadCakesList() {
+    init {
+        loadCakesList()
+    }
+
+    private fun loadCakesList() {
         getCakesJob?.cancel()
         //Launch the viewModel in viewModelScope, so it will be aware of the viewModel lifecycle
         getCakesJob = viewModelScope.launch {
@@ -66,6 +70,16 @@ class CakeInfoListViewModel @Inject constructor(
                 }
             }
         }
+    }
+
+    //vMethod exposed to view which is called when retry button was clicked
+    fun retryFetchingCakeList() {
+        loadCakesList()
+    }
+
+    //vMethod exposed to view which is called when refresh floating button was clicked
+    fun refreshCakeList() {
+        loadCakesList()
     }
 
     sealed class UIEvent {
