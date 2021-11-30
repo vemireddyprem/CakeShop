@@ -63,11 +63,11 @@ class CakeInfoListViewModelTest {
         //Given
         repository = FakeCakeInfoRepository(true)
         getCakeInfoUseCase = GetCakesUsecase(repository)
-        subjectUnderTest = CakeInfoListViewModel(getCakeInfoUseCase)
-        val captor = ArgumentCaptor.forClass(UIState::class.java)
+
 
         //When
-        subjectUnderTest.loadCakesList()
+        subjectUnderTest = CakeInfoListViewModel(getCakeInfoUseCase)
+        val captor = ArgumentCaptor.forClass(UIState::class.java)
 
         //Then
         subjectUnderTest.cakes.observeForever(observer)
@@ -90,11 +90,11 @@ class CakeInfoListViewModelTest {
         //Given
         repository = FakeCakeInfoRepository(false)
         getCakeInfoUseCase = GetCakesUsecase(repository)
-        subjectUnderTest = CakeInfoListViewModel(getCakeInfoUseCase)
-        val captor = ArgumentCaptor.forClass(UIState::class.java)
+
 
         //When
-        subjectUnderTest.loadCakesList()
+        subjectUnderTest = CakeInfoListViewModel(getCakeInfoUseCase)
+        val captor = ArgumentCaptor.forClass(UIState::class.java)
 
         //Then
         subjectUnderTest.cakes.observeForever(observer)
